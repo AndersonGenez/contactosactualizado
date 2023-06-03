@@ -12,7 +12,8 @@
         }
 
         p {
-            margin: 0
+            margin: 0;
+            font-size: ;
         }
 
         td {
@@ -67,6 +68,26 @@
     </ul>
 
     <h2>Especificación Funcional</h2>
+    
+    <br>
+    <p style="font-weight:bold">Anexo A: Formato de direcciones de email</p>
+
+    <p>Siguiendo las especificaciones de <a
+            href="http://tools.ietf.org/html/rfc5322#section-3.4.1">http://tools.ietf.org/html/rfc5322#section-3.4.1</a>,
+        el mail está formado por:</p>
+
+    <ul>
+        <li>Una cadena no nula compuesta por letras, números, "+", ".", "_" y/o "-"</li>
+
+        <li>El signo @</li>
+
+        <li>Una cadena no nula, compuesta por letras, números, &nbsp;".", "_" y/o "-"</li>
+
+        <li>Un punto</li>
+
+        <li>Una cadena de entre 2 y 4 caracteres (inclusive) compuesta por letras</li>
+    </ul>
+
 
     <h3>Consulta - Lectura</h3>
     <h3>CU01: Visualizar lista de contactos.</h3>
@@ -153,10 +174,6 @@
                 </td>
 
                 <td>
-                    <p>Si se estaba agregando un nuevo contacto o editando uno existente el sistema emite un mensaje
-                        informando que se perderán los cambios
-                    </p>
-                    <br>
                     <p><strong>2b.1</strong> Si se estaba agregando un nuevo contacto o editando uno existente el sistema emite un mensaje
                         informando que se perderán los cambios y consulta al usuario si quiere proceder.
                     </p>
@@ -177,7 +194,7 @@
                     <br>
                     <p><strong>3b.2</strong> El sistema cierra el formulario desplegado.</p>
                     <br>
-                    <p><strong>3.c1</strong> El usuario no comlpleta todos los campos obligatorios.</p>
+                    <p><strong>3.c1</strong> El usuario no comlpleta todos los campos obligatorios y envía el formulario.</p>
                     <br>
                     <p><strong>3.c2</strong> El sistema muestra un mensaje informando qué campos deben completarse.</p>
                 </td>
@@ -185,8 +202,7 @@
 
             <tr>
                 <td>
-                    <p><strong>4.</strong> El sistema almacena los datos, los cuales se visualizan en la parte superior de la pantalla, en
-                        una grilla junto a las opciones editar y eliminar.</p>
+                    <p><strong>4.</strong> El sistema almacena los datos, y carga el registro en la grilla.</p>
                 </td>
 
                 <td>
@@ -212,7 +228,7 @@
             </tr>
             <tr>
                 <td>
-                    <p>El usuario selecciona la opción para modificar un
+                    <p><strong>1.</strong> El usuario selecciona la opción para modificar un
                         contacto</p>
                 </td>
                 <td></td>
@@ -220,7 +236,7 @@
 
             <tr>
                 <td>
-                    <p>El sistema despliega un formulario con la siguiente información</p>
+                    <p><strong>2.</strong> El sistema despliega un formulario con la siguiente información</p>
                     <ul>
                         <li>Nombre(texto, obligatorio, 35 caracteres). Valor por defecto: El nombre asociado al contacto
                             seleccionado</li>
@@ -233,21 +249,33 @@
                 </td>
 
                 <td>
-                    <p>Si se estaba agregando un nuevo contacto o editando uno existente el sistema emite un mensaje
-                        informando que se perderán los cambios</p>
+                    <p><strong>2b.1</strong> Si se estaba agregando un nuevo contacto o editando uno existente el sistema emite un mensaje
+                        informando que se perderán los cambios y consulta al usuario si quiere proceder.
+                    </p>
+                    <br>
+                    <p><strong>2b.2</strong> El usuario acepta y vuelve al paso 2.</p>
+                    <br>
+                    <p><strong>2b.2.b</strong> El usuario cancela el proceso. El sistema cierra el mensaje y conserva los cambios realizados en pantalla.</p>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <p>El usuario los campos</p>
+                    <p><strong>3.</strong> El usuario completa los campos obligatorios y envía el formulario.</p>
                 </td>
-                <td></td>
-            </tr>
+                <td>
+                    <p><strong>3b.1</strong> El usuario hace click en cancelar.</p>
+                    <br>
+                    <p><strong>3b.2</strong> El sistema cierra el formulario desplegado.</p>
+                    <br>
+                    <p><strong>3.c1</strong> El usuario no comlpleta todos los campos obligatorios y envía el formulario.</p>
+                    <br>
+                    <p><strong>3.c2</strong> El sistema muestra un mensaje informando qué campos deben completarse.</p>
+                </td>            </tr>
 
             <tr>
                 <td>
-                    <p>El sistema almacena los datos</p>
+                    <p><strong>4.</strong> El sistema almacena los datos, y carga el registro en la grilla.</p>
                 </td>
 
                 <td>
@@ -268,7 +296,7 @@
             </tr>
             <tr>
                 <td>
-                    <p>El usuario selecciona la opción para eliminar un
+                    <p><strong>1.</strong> El usuario selecciona la opción para eliminar un
                         contacto</p>
                 </td>
                 <td></td>
@@ -276,7 +304,7 @@
 
             <tr>
                 <td>
-                    <p>El sistema emite un mensaje solicitando la confirmación del usuario sobre estar seguro de querer
+                    <p><strong>2.</strong> El sistema emite un mensaje solicitando la confirmación del usuario sobre estar seguro de querer
                         borrar el contacto: "Está seguro que quiere borrar el contacto &lt;Nombre del contacto&gt;"</p>
                 </td>
                 <td></td>
@@ -284,43 +312,23 @@
 
             <tr>
                 <td>
-                    <p>El usuario confirma el mensaje</p>
+                    <p><strong>3.</strong> El usuario confirma el mensaje</p>
                 </td>
 
                 <td>
-                    <p>Si el usuario cancela el mensaje, los datos no se eliminan</p>
+                    <p><strong>3.b</strong> Si el usuario cancela el mensaje, los datos no se eliminan</p>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <p>Los datos son eliminados</p>
+                    <p><strong>4.</strong> Los datos son eliminados</p>
                 </td>
 
                 <td></td>
             </tr>
         </tbody>
     </table>
-
-    <br>
-    <p style="font-weight:bold">Anexo A: Formato de direcciones de email</p>
-
-    <p>Siguiendo las especificaciones de <a
-            href="http://tools.ietf.org/html/rfc5322#section-3.4.1">http://tools.ietf.org/html/rfc5322#section-3.4.1</a>,
-        el mail está formado por:</p>
-
-    <ul>
-        <li>Una cadena no nula compuesta por letras, números, "+", ".", "_" y/o "-"</li>
-
-        <li>El signo @</li>
-
-        <li>Una cadena no nula, compuesta por letras, números, &nbsp;".", "_" y/o "-"</li>
-
-        <li>Un punto</li>
-
-        <li>Una cadena de entre 2 y 4 caracteres (inclusive) compuesta por letras</li>
-    </ul>
-
 
 </body>
 
